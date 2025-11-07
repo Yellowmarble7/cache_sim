@@ -21,8 +21,8 @@ int main(int argc, char* argv[]){
  string input_file = argv[3];
 
 
-if (num_sets == 0 || associativity == 0 || (num_sets % associativity) != 0) {
-        cerr << "num_sets must be > 0 and divisible by associativity.\n";
+if (num_entries == 0 || associativity == 0 || (num_entries % associativity) != 0) {
+        cerr << "num_entries must be > 0 and divisible by associativity.\n";
         return 1;
     }
 
@@ -63,9 +63,9 @@ if (!cache[index][way].valid && empty_slot == (size_t)-1){
 }
 
 if (hit) {
-       out << addr << " HIT\n";
+       out << addr << " : HIT\n";
 } else {
-         out << addr << " MISS\n";
+         out << addr << " : MISS\n";
 
      if (empty_slot != (size_t)-1) {   
         cache[index][empty_slot].valid = true;
