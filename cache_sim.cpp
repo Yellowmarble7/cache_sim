@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
     return 1;
     }
 
- uint64_t num_sets = stoull(argv[1]);
+ uint64_t num_entries = stoull(argv[1]);
  uint64_t associativity = stoull(argv[2]);
  string input_file = argv[3];
 
@@ -49,7 +49,7 @@ while (in >> addr) {
 uint64_t index = (num_sets == 0) ? 0    : (addr % num_sets);
 uint64_t tag   = (num_sets == 0) ? addr : (addr / num_sets);
 bool hit = false;
-bool empty_slot=(size_t)-1;
+size_t empty_slot=(size_t)-1;
 
 for (size_t way = 0; way < associativity; ++way) {
      if (cache[index][way].valid && cache[index][way].tag == tag) {
