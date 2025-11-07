@@ -62,5 +62,23 @@ if (!cache[index][way].valid && empty_slot == (size_t)-1){
      }
 }
 
+if (hit) {
+       out << addr << " HIT\n";
+} else {
+         out << addr << " MISS\n";
 
+     if (empty_slot != (size_t)-1) {   
+        cache[index][empty_slot].valid = true;
+        cache[index][empty_slot].tag = tag; 
+        } else {
+            size_t v = next_victim[index];
+            cache[index][v].valid = true;
+            cache[index][v].tag   = tag;
+            next_victim[index] = (v + 1) % associativity;
+        }
+    }
+}
+
+return 0;
+}
 
