@@ -29,4 +29,18 @@ if (num_sets == 0 || associativity == 0 || (num_sets % associativity) != 0) {
 uint64_t num_sets = num_entries / associativity;
 
 vector<vector<Line>> cache(num_sets, vector<Line>(associativity));
+vector<size_t> next_victim(num_sets, 0);
 
+ifstream in(input_file);
+    if (!in) {
+        cerr << "Could not open input file.\n";
+        return 1;
+    }
+
+ ofstream out("cache_sim_output");
+    if (!out) {
+        cerr << "Could not open output file.\n";
+        return 1;
+    }
+
+    
