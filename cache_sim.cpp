@@ -29,3 +29,4 @@ if (num_sets == 0 || associativity == 0 || (num_sets % associativity) != 0) {
 uint64_t num_sets = num_entries / associativity;
 
 vector<vector<Line>> cache(num_sets, vector<Line>(associativity));
+
